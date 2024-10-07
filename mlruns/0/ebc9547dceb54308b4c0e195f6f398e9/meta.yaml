@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/chetu/Learning/mlops/project/ml-flow-test/mlruns/0/ebc9547dceb54308b4c0e195f6f398e9/artifacts
+end_time: 1727797679635
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ebc9547dceb54308b4c0e195f6f398e9
+run_name: redolent-goose-400
+run_uuid: ebc9547dceb54308b4c0e195f6f398e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727797670193
+status: 3
+tags: []
+user_id: chetu

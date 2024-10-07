@@ -16,6 +16,7 @@ import mlflow.sklearn
 
 import logging
 
+
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
@@ -72,18 +73,18 @@ if __name__=="__main__":
         mlflow.log_metric("mae", mae)
         mlflow.log_metric("r2", r2)
 
-        predictions= lr.predict(train_x)
-        signature = infer_signature(train_x, predictions)
+        #predictions= lr.predict(train_x)
+        #signature = infer_signature(train_x, predictions)
 
-        tracking_url_type_store= urlparse(mlflow.get_tracking_uri()).scheme
+        remote_server_uri = "https://dagshub.com/sochetan30/mlflow_basic_ops.mlflow"
+       # tracking_url_type_store= urlparse(mlflow.get_tracking_uri()).scheme
+        tracking_url_type_store= urlparse(remote_server_uri).scheme
+
 
 
         if tracking_url_type_store != "file":
-            mlflow.sklearn.log_model(
-                lr, "model", registered_model_name="ElasticnetWineModel", signature=signature
-            )
+            mlflow.sklearn.log_model(lr, "model", registered_model_name="ElasticnetWineModel")
+            
         else:
-            mlflow.sklearn.log_model(lr, "model", signature=signature)
-
-
-
+            #mlflow.sklearn.log_model(lr, "model", signature=signature)
+            mlflow.sklearn.log_model(lr, "model")
